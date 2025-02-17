@@ -32,8 +32,8 @@ print(sorted(names))
 names.reverse()
 print (names)
 len_invitati = len(Guest)
-for i in range(len_invitati)
-print (Guest[i])
+for i in range(len_invitati):
+  print (Guest[i])
 
 ## 3.10
 
