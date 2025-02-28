@@ -20,7 +20,7 @@ invite ={
     "Alessandro": "Ciao amico mio! Sei invitato a casa mia domani",
     "Paolo": "Sei invitato alla mia cena domani"
 } 
-
+ggg
 print(f"{Guest}: {invite}")
 
 
