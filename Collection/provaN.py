@@ -46,3 +46,26 @@ messaggio = {
 }
 
 print(sorted(messaggio))
+
+
+i:int = 1
+
+while i != 11:
+    s1 = s1 + i
+    i = i + 1
+
+c = 20
+while c != 34:
+   s2 = s2 + c
+   c = c + 1
+
+f = 35
+
+while f != 50:
+   s3 = s3 + f
+   f = f + 1
+
+print("La somma da 1 a 10 è", s1)
+print("La somma da 20 a 35 è", s2)
+print("La somma da 35 a 49 è", s3)
+
