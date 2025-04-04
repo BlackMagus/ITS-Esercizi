@@ -41,3 +41,25 @@
 
 
             
+# def blackjack_hand_total(cards: list[int]) -> int:
+#  if sum(cards) > 21:
+#       s = sum(cards)
+#       s = s - 10
+#        print(s)
+#   else:
+#       print(sum(cards))
+
+# blackjack_hand_total([4,5,11])
+
+# def separa_pari_dispari(lista):
+#    pari = []
+#    dispari = []
+#    for num in lista:  
+#        if num % 2 == 0:
+#            pari.append(num)  
+#        else:
+#            dispari.append(num)  
+   
+#    return pari + dispari  
+
+
