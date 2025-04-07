@@ -51,6 +51,10 @@
 
 # blackjack_hand_total([4,5,11])
 
+
+
+
+
 # def separa_pari_dispari(lista):
 #    pari = []
 #    dispari = []
