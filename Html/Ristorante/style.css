@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: green;
+    font-family: Arial, sans-serif;
+}
+
+.contenitore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.foglio {
+    background-color: white; 
+    padding: 20px;
+    border-radius: 8px; 
+    max-width: 800px; 
+    width: 100%;
+}
+
+.foglio h1 {
+    color: #333;
+    font-size: 2em;
+}
+
+.foglio h2 {
+    color:#333;
+    font-size: 2.5em;
+}
+
+.foglio p {
+    color: #555;
+    font-size: 1.2em;
+}
