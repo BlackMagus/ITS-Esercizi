@@ -1,0 +1,18 @@
+from abc import ABC, abstractmethod
+
+class FormaGenerica:
+
+    @abstractmethod
+    def draw(self) -> None:
+        pass
+
+
+    def setShape(self, shape:str) -> None:
+        if shape:
+            self.shape = shape
+        else:
+            print("Errore!")
+
+        
+    def getShape(self) -> str:
+        return self.shape
