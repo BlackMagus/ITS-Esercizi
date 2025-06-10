@@ -39,3 +39,39 @@ class Customer:
         else:
             raise ValueError(f"Il film {movie.title} non è stato noleggiato da nessuno")
         
+    
+class VideoRentalStore:
+
+    def __init__(self, movies:dict[str, Movie],customers:dict[str, Customer]):
+        self.movies = movies
+        self.customers = customers
+
+    def add_movie(self, movie_id:str, title:str, director:str)-> None:
+        lista1:list[movie_id:str, title:str, director:str]
+        for element in self.movies:
+            key = element[0]
+
+        if movie_id in self.movies:
+            print(f"Il film con ID {movie_id} esiste già")
+        else:
+            self.movies[key].append(lista1)
+
+    def register_customer(self, customer_id:str, name:str)-> None:
+        lista1:list[customer_id:str, name:str]
+        for element in self.customers:
+            key = element[0]
+
+        if customer_id in self.customers:
+            print(f"Il cliente con ID {customer_id} è già registrato")
+        else:
+            self.customers[key].append(lista1)
+
+    def rent_movie(self, customer_id:str, movie_id:str)-> None:
+        if movie_id not in self.movies and customer_id not in self.customers:
+            print("Cliente o Film non trovato")
+
+    def return_movie(self, customer_id:str, movie_id:str):
+        if movie_id not in self.movies and customer_id not in self.customers:
+            print("Cliente o Film non trovato")
+
+    
