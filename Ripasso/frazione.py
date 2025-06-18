@@ -22,21 +22,42 @@ class Frazione:
         return r
     
     def __str__(self)-> None:
-        print(f"{self.numeratore} / {self.denominatore}")
+        
+        return (f"{self.numeratore} / {self.denominatore}")
+        
 
 
-    def mcd(self):
-        x = self.numeratore
-        y = self.denominatore
-        if x < y:
-            while y != 0:
-                x, y = y, x % y
-            return x
-        else:
-            while x != 0:
-                y, x = x, y % x
-            return y
+def mcd(x,y):
+    if x < y:
+        while y != 0:
+            x, y = y, x % y
+        return x
+    else:
+        while x != 0:
+            y, x = x, y % x
+        return y
+    
         
-        
-n = Frazione(12,17)
-print(n.mcd())
+def semplifica(l:list[Frazione]):
+
+    lista_irriducibili = []
+
+    for frazione in l:
+        num = frazione.numeratore
+        den = frazione.denominatore
+        divisore = mcd(num, den)
+
+        num_sempl = num // divisore
+        den_sempl = den // divisore
+
+        frazione_irriducibile = Frazione(num_sempl, den_sempl)
+        lista_irriducibili.append(frazione_irriducibile)
+
+    return lista_irriducibili
+
+
+m = Frazione(12,24)
+r = Frazione(34,89)
+n:list[Frazione] = [m,r]
+
+print(semplifica(n))
