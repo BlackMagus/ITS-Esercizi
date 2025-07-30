@@ -66,4 +66,9 @@
    
 #    return pari + dispari  
 
+Frase = "Nel mezzo del cammin di nostra vita"
 
+for i in Frase:
+    c = ord(i)
+    print (c)
+    print(c ^ 57)
