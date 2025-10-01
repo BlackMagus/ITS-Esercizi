@@ -1,8 +1,18 @@
 import React from 'react'
+import TodoItem from './TodoItem'
 
-const TodoList = () => {
+const TodoList = ({tasks,onDeleteTask}) => {
+console.log("todolist->",tasks);
   return (
-    <div>TodoList</div>
+    <ul className="list-group">
+        {
+            tasks.map((t)=>{
+              return(  <TodoItem key={t.id} task={t} handleDeleteTask={onDeleteTask}></TodoItem>)
+            })
+        }
+           
+       
+    </ul>
   )
 }
 

@@ -83,5 +83,19 @@
       "body": "Roba da nerd qwerty"
     }
   ],
+  "task": [
+    {
+      "id": 1,
+      "text": "imparare le basi di React",
+      "complete": true
+      },
+      {
+      "id": 2,
+      "text": "fare questo esercizio",
+      "complete": false
+      }
+  ],
   "comments": []
+
+  
 }
