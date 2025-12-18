@@ -8,8 +8,8 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
-import TaskItem from "./components/TaskItem";
-import TaskInput from "./components/TaskInput";
+import TaskItem from "./TaskItem.js";
+import TaskInput from "./TaskInput.js";
 
 export default function App() {
   // const [task, setTask] = useState("");

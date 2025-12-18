@@ -7,7 +7,7 @@ import MessaggioSegreto from './MessaggioSegreto'
 import ModuloContatti from './ModuloContatti'
 import './App.css'
 
-function App() {
+function AppVacanze() {
   const [count, setCount] = useState(0)
 
   // Esercizio 9

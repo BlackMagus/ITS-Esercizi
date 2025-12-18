@@ -1,37 +1,45 @@
-import React,{useState} from "react";
-import { StyleSheet, TextInput, View, Button, Modal } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, TextInput, View, Button, Modal, Image } from "react-native";
 
 const TaskInput = (props) => {
   const [task, setTask] = useState("");
- 
-   function taskInputHandler(enteredTask) {
-     console.log(enteredTask);
-     setTask(enteredTask);
-   }
- function addTask() {
+
+  function taskInputHandler(enteredTask) {
+    console.log(enteredTask);
+    setTask(enteredTask);
+  }
+  function addTask() {
     props.onAddTask(task);
     setTask("");
- }
+    props.onCancel();
+  }
+  function annulla() {
+    setTask("");
+    props.onCancel();
+  }
   return (
-    <Modal visible={props.visible}>
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Inserisci task"
-        onChangeText={taskInputHandler}
-        value={task}
-      />
-      <Button
-        title="Aggiungi"
-        onPress={addTask}
-        disabled={task === ""}
-      ></Button>
-      <Button
-        title="Annulla"
-        onPress={props.onCancel}
-        
-      ></Button>
-    </View>
+    <Modal visible={props.visible} animationType="slide">
+      <View style={styles.inputContainer}>
+        <Image style={styles.image} source={require("../assets/goal.png")}></Image>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Inserisci task"
+          onChangeText={taskInputHandler}
+          value={task}
+        />
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <Button
+              title="Aggiungi"
+              onPress={addTask}
+              disabled={task === ""}
+            ></Button>
+          </View>
+          <View style={styles.button}>
+            <Button title="Annulla" onPress={annulla}></Button>
+          </View>
+        </View>
+      </View>
     </Modal>
   );
 };
@@ -43,14 +51,26 @@ const styles = StyleSheet.create({
     width: "70%",
     padding: 8,
   },
+  image:{
+    width:100,
+    height:100,
+    margin:20
+  },
   inputContainer: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+
+    justifyContent: "center",
     alignItems: "center",
     marginBottom: 24,
     borderBottomWidth: 1,
-    borderColor: "#cccccc",
+    borderBottomColor: "#cccccc",
+    gap: 16,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+  },
+  button: {
+    marginHorizontal: 8,
   },
 });
 export default TaskInput;

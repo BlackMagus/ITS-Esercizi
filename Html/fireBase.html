@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tasks"></div>
+    <input type="text" id="task" >
+    <button id="add"> Add  </button>
+    <script>
+        const URL_BASE="https://todoapp-875ed-default-rtdb.europe-west1.firebasedatabase.app/tasks/"
+    
+        const btn= document.querySelector("#add")
+        btn.addEventListener("click", ()=>{
+            const task= document.getElementById("task").value
+            alert(task)
+            const newtask={
+                text:task,
+                done:false
+        }
+
+        fetch(URL_BASE+ ".json",{
+            method:"POST",
+            headers:{
+                "Contant-Type": "application/json"
+            },
+            body:JSON.stringify(newtask)
+        }).then(resp => resp.json()).then(ris=>console.log(ris)).catch(err=>console.error(err))
+
+        leggiTasks()
+        
+        })
+
+        async function leggiTasks() {
+                const response =await fetch(URL_BASE+ ".json")
+                const dati = await response.json()
+                    console.log(dati)
+                    const task =Object.keys(dati).map(id=>({
+                        id,
+                        ...dati[dati]
+                    }))
+                console.log(tasks)
+            
+        }
+        leggiTasks()
+    
+
+    
+    </script>
+</body>
+</html>
