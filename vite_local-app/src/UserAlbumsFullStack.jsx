@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const urlUsers = "https://jsonplaceholder.typicode.com/users";
 const urlAlbums = "https://jsonplaceholder.typicode.com/albums";
 const urlPhotos = "https://jsonplaceholder.typicode.com/photos";
+
 const UserAlbumsFullStack = () => {
   const [users, setUsers] = useState([]);
   const [userSelected, setUserSelected] = useState(0);
