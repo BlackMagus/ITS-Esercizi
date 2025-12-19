@@ -6,12 +6,12 @@ const TaskItem = ({taskItem,onDelete}) => {
     <View style={styles.taskItem}>
     <Pressable 
     android_ripple={{ color: '#210644' }} 
-    onPress={()=>onDelete(taskItem.id)}
+    onPress={()=>onDelete(taskItem)}
     style={({ pressed }) => pressed && styles.pressedItem}
 
     >
    
-      <Text style={styles.taskText}>{taskItem.task}</Text>
+      <Text style={styles.taskText}>{taskItem.text}</Text>
 
     </Pressable>
     </View>
@@ -23,9 +23,7 @@ export default TaskItem;
 const styles = StyleSheet.create({
   taskItem: {
     margin: 8,
-
     borderRadius: 6,
-
     backgroundColor: "#5e0acc",
   },
   pressedItem:{
@@ -33,6 +31,6 @@ const styles = StyleSheet.create({
   },
   taskText: {
     color: "#fff", 
-       padding: 8,
+    padding: 8,
   },
 });
