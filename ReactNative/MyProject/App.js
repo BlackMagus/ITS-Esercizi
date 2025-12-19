@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,8 +8,9 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
-import TaskItem from "./TaskItem.js";
-import TaskInput from "./TaskInput.js";
+import TaskItem from "./TaskItem";
+import TaskInput from "./TaskInput";
+import { addTask, doneTask, fetchTasks } from "./services/TaskService";
 
 export default function App() {
   // const [task, setTask] = useState("");
@@ -29,18 +30,30 @@ export default function App() {
   //   setTask(enteredTask);
   // }
   function deleteTask(id) {
-    setTasks((current) => {
-      return current.filter((t) => t.id !== id);
-    });
+    // setTasks((current) => {
+    //   return current.filter((t) => t.id !== id);
+    // });
+    doneTask(id)
+    loaaTasks()
   }
   function addTaskHandler(task) {
-    setTasks((current) => [...current, { task, id: new Date() }]);
+   // setTasks((current) => [...current, { task, id: new Date() }]);
+   addTask(task)
+    loaaTasks()
   }
   // function addTaskHandler() {
   //   setTasks((current) => [...current, { task,id:new Date()}]);
   //   setTask("");
   // }
-
+  async function loaaTasks(){
+    const tasks=await fetchTasks();
+    console.log(tasks)
+    setTasks(tasks)
+  }
+  useEffect(()=>{
+    loaaTasks()
+  },[])
+ const visibleTask=tasks.filter(t=>!t.done)
   return (
     <View style={styles.appContainer}>
       <Button title="Add New Task" color="#5e0acc" onPress={startAddTask} />
@@ -62,7 +75,7 @@ export default function App() {
       <View style={styles.goalsContainer}>
         <FlatList
           alwaysBounceVertical={true}
-          data={tasks}
+          data={visibleTask}
           renderItem={(itemData) => {
             return (
               <TaskItem
@@ -95,21 +108,7 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 16,
   },
-  // textInput: {
-  //   borderWidth: 1,
-  //   borderColor: "#cccccc",
-  //   width: "70%",
-  //   padding: 8,
-  // },
-  // inputContainer: {
-  //   flex: 1,
-  //   flexDirection: "row",
-  //   justifyContent: "space-between",
-  //   alignItems: "center",
-  //   marginBottom: 24,
-  //   borderBottomWidth: 1,
-  //   borderColor: "#cccccc",
-  // },
+
   goalsContainer: {
     flex: 4,
   },
